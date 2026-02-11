@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="একটি আধুনিক এবং পেশাদার টাইমার অ্যাপ যা আপনাকে সময় নির্ধারণ এবং পরিচালনা করতে সাহায্য করে">
+    <meta name="keywords" content="টাইমার, সময়, কাউন্টডাউন, প্রোডাক্টিভিটি">
+    <meta name="author" content="Timer App">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="টাইমার অ্যাপ - আপনার সময় পরিচালনার সহজ সমাধান">
+    <meta property="og:description" content="একটি আধুনিক এবং পেশাদার টাইমার অ্যাপ যা আপনাকে সময় নির্ধারণ এবং পরিচালনা করতে সাহায্য করে">
+    <meta property="og:image" content="assets/p.png">
+    <meta property="og:url" content="https://hanafi-shop.netlify.app">
+    <meta property="og:type" content="website">
+    
+    <title>টাইমার - আপনার সময় পরিচালনার সহজ সমাধান</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Hind Siliguri -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-clock"></i>
+                    <!-- <span>টাইমার</span> -->
+                </div>
+                
+                <div class="theme-toggle">
+                    <button id="themeToggle" class="btn-icon">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <h1>টাইমার সেট করুন</h1>
+                    <!-- <p>একটি সহজ এবং কার্যকর টাইমার যা আপনাকে আপনার কাজ সম্পন্ন করতে সাহায্য করবে</p> -->
+                    
+                    <div class="timer-options" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timer-option" data-time="45" data-unit="minutes">
+                            <div class="timer-option-inner">
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>৪৫ মিনিট</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timer-option" data-time="25" data-unit="minutes">
+                            <div class="timer-option-inner">
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>২৫ মিনিট</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timer-option" data-time="10" data-unit="minutes">
+                            <div class="timer-option-inner">
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>১০ মিনিট</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timer-option" data-time="5" data-unit="minutes">
+                            <div class="timer-option-inner">
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>৫ মিনিট</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timer-option" id="customTimer">
+                            <div class="timer-option-inner">
+                                <i class="fas fa-cog"></i>
+                                <span>কাস্টম</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-timer-form" id="customTimerForm" style="display: none;" data-aos="fade-up" data-aos-delay="300">
+                        <h3>কাস্টম টাইমার সেট করুন</h3>
+                        <div class="time-inputs">
+                            <div class="time-input">
+                                <label for="hours">ঘন্টা</label>
+                                <select id="hours">
+                                    <!-- Options will be generated by JavaScript -->
+                                </select>
+                            </div>
+                            
+                            <div class="time-input">
+                                <label for="minutes">মিনিট</label>
+                                <select id="minutes">
+                                    <!-- Options will be generated by JavaScript -->
+                                </select>
+                            </div>
+                            
+                            <div class="time-input">
+                                <label for="seconds">সেকেন্ড</label>
+                                <select id="seconds">
+                                    <!-- Options will be generated by JavaScript -->
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button id="startCustomTimer" class="btn btn-primary">টাইমার শুরু করুন</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Full Screen Timer -->
+    <div class="fullscreen-timer" id="fullscreenTimer">
+        <div class="timer-container">
+            <button class="btn-exit" id="exitTimer">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="timer-circle">
+                <svg class="progress-ring" width="300" height="300">
+                    <circle class="progress-ring__circle" stroke="#4CAF50" stroke-width="8" fill="transparent" r="140" cx="150" cy="150"/>
+                </svg>
+                <div class="timer-display">
+                    <div class="timer-time" id="timerTime">00:00:00</div>
+                    <div class="timer-controls">
+                        <button class="btn btn-icon" id="pauseTimer">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="btn btn-icon" id="resumeTimer" style="display: none;">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="btn btn-icon" id="resetTimer">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timer-message" id="timerMessage"></div>
+        </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="currentYear"></span> টাইমার অ্যাপ. সর্বস্বত্ব সংরক্ষিত।</p>
+                <p>ডিজাইন ও ডেভেলপ করেছে <a href="https://mohammadullah.netlify.app/" target="_blank"><b>মুহম্মদুল্লাহ আল হানাফী</b></a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
